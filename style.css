@@ -1,0 +1,237 @@
+/* Cahier des charges – SAÉ BUT3 GEII 2026-2027 */
+
+:root {
+  --encre: #1d1f23;
+  --texte: #2b2e33;
+  --gris: #5f646c;
+  --trait: #d6d9de;
+  --fond-doux: #f4f5f7;
+  --bleu: #1f4e79;
+  --largeur: 820px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--texte);
+  background: #fff;
+}
+
+a { color: var(--bleu); }
+
+/* En-tête */
+.entete {
+  border-bottom: 3px solid var(--bleu);
+  background: var(--fond-doux);
+}
+.entete-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 28px;
+}
+.surtitre {
+  margin: 0 0 6px;
+  font-size: 14px;
+  letter-spacing: .02em;
+  color: var(--gris);
+}
+.entete h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.15;
+  color: var(--encre);
+}
+.soustitre {
+  margin: 8px 0 0;
+  font-size: 19px;
+  color: var(--encre);
+}
+.meta {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: var(--gris);
+}
+
+/* Mise en page */
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 48px;
+}
+
+/* Sommaire */
+.sommaire {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 28px 0 40px;
+  font-size: 14px;
+}
+.sommaire summary {
+  font-weight: 600;
+  color: var(--encre);
+  cursor: pointer;
+  margin-bottom: 10px;
+  list-style: none;
+}
+.sommaire summary::-webkit-details-marker { display: none; }
+.sommaire ol { list-style: none; margin: 0; padding: 0; }
+.sommaire ol ol { padding-left: 14px; margin: 2px 0 6px; }
+.sommaire li { margin: 0; }
+.sommaire a {
+  display: block;
+  padding: 3px 0 3px 10px;
+  border-left: 2px solid transparent;
+  color: var(--gris);
+  text-decoration: none;
+  line-height: 1.4;
+}
+.sommaire a:hover { color: var(--encre); }
+.sommaire a.actif { color: var(--bleu); border-left-color: var(--bleu); font-weight: 600; }
+
+/* Contenu */
+.contenu {
+  max-width: var(--largeur);
+  padding: 28px 0 60px;
+}
+.contenu h2 {
+  margin: 56px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--trait);
+  font-size: 27px;
+  line-height: 1.25;
+  color: var(--encre);
+}
+.contenu h2:first-child { margin-top: 8px; }
+.contenu h3 {
+  margin: 40px 0 10px;
+  font-size: 21px;
+  color: var(--bleu);
+}
+.contenu h4 {
+  margin: 26px 0 8px;
+  font-size: 16.5px;
+  color: var(--encre);
+}
+.contenu p { margin: 0 0 14px; }
+.contenu ul, .contenu ol { padding-left: 24px; margin: 0 0 16px; }
+.contenu li { margin-bottom: 4px; }
+
+/* Tableaux */
+.table { overflow-x: auto; margin: 10px 0 22px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+th, td {
+  border: 1px solid var(--trait);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--fond-doux); color: var(--encre); font-weight: 600; }
+
+/* Schémas */
+figure { margin: 22px 0 26px; }
+figure.schema {
+  padding: 18px;
+  border: 1px solid var(--trait);
+  background: #fff;
+}
+figure.schema img { display: block; width: 100%; height: auto; }
+figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+}
+
+/* Photos */
+.photos { display: grid; gap: 14px; margin: 18px 0 24px; }
+.photos { justify-content: center; }
+.photos.p1 { grid-template-columns: minmax(0, 320px); }
+.photos.p2 { grid-template-columns: repeat(2, minmax(0, 300px)); }
+.photos.p3 { grid-template-columns: repeat(3, minmax(0, 250px)); }
+.photos figure { margin: 0; }
+.photos img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--trait);
+}
+.photos figcaption { text-align: left; font-size: 13.5px; }
+
+/* Points à valider */
+.checklist { list-style: none; padding-left: 0 !important; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+.checklist .case {
+  flex: 0 0 18px;
+  height: 18px;
+  margin-top: 4px;
+  border: 1.5px solid var(--gris);
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #fff;
+}
+.checklist .fait .case { background: var(--bleu); border-color: var(--bleu); }
+.checklist .fait { color: var(--gris); }
+
+/* Pied de page */
+.pied {
+  margin-top: 64px;
+  padding-top: 16px;
+  border-top: 1px solid var(--trait);
+  font-size: 13.5px;
+  color: var(--gris);
+}
+
+/* Téléphone et tablette */
+@media (max-width: 900px) {
+  body { font-size: 16px; }
+  .page { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .sommaire {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    max-height: 80vh;
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: 1px solid var(--trait);
+  }
+  .sommaire summary { margin: 0; }
+  .sommaire details[open] summary { margin-bottom: 10px; }
+  .entete h1 { font-size: 30px; }
+  .contenu h2 { font-size: 23px; }
+  .photos.p3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .photos.p2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .photos.p2, .photos.p3 { grid-template-columns: 1fr; }
+  figure.schema { padding: 8px; }
+}
+
+/* Impression */
+@media print {
+  .sommaire, .pied a { display: none; }
+  .page { display: block; }
+  .entete { background: none; }
+  .contenu { max-width: none; }
+  h2, h3 { break-after: avoid; }
+  figure, table, .photos { break-inside: avoid; }
+}

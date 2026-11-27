@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cahier des charges – SAÉ BUT3 GEII 2026-2027</title>
+<meta name="description" content="Cahier des charges de la SAÉ de 3e année du BUT GEII de l'IUT de Troyes : kart électrique autonome, recharge solaire et domotique du département.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="entete">
+  <div class="entete-inner">
+    <p class="surtitre">IUT de Troyes · BUT GEII · 3e année · SAÉ 2026-2027</p>
+    <h1>Cahier des charges</h1>
+    <p class="soustitre">Kart électrique autonome, recharge solaire et domotique du département GEII</p>
+    <p class="meta">Rédigé en groupe les 26 et 27 novembre 2026</p>
+  </div>
+</header>
+
+<div class="page">
+  <nav class="sommaire" aria-label="Sommaire">
+    <details open>
+      <summary>Sommaire</summary>
+      <ol><li><a href="#1-presentation-du-projet">1. Présentation du projet</a><ol><li><a href="#11-objectifs">1.1 Objectifs</a></li><li><a href="#12-expression-du-besoin">1.2 Expression du besoin</a></li></ol></li><li><a href="#2-organisation-du-travail">2. Organisation du travail</a><ol><li><a href="#21-intervenants-exterieurs">2.1 Intervenants extérieurs</a></li></ol></li><li><a href="#3-architecture-generale">3. Architecture générale</a></li><li><a href="#4-moyens-de-communication-envisages">4. Moyens de communication envisagés</a><ol><li><a href="#41-liaisons-sans-fil">4.1 Liaisons sans fil</a></li><li><a href="#42-liaisons-filaires">4.2 Liaisons filaires</a></li><li><a href="#43-protocoles">4.3 Protocoles</a></li><li><a href="#44-criteres-de-choix">4.4 Critères de choix</a></li><li><a href="#45-premiere-proposition">4.5 Première proposition</a></li></ol></li><li><a href="#5-domotique-du-departement">5. Domotique du département</a><ol><li><a href="#51-tache-1-arrosage-des-plantes">5.1 Tâche 1 : arrosage des plantes</a></li><li><a href="#52-tache-2-salle-dimpression-3d">5.2 Tâche 2 : salle d'impression 3D</a></li><li><a href="#53-tache-3-local-serveur-ltg">5.3 Tâche 3 : local serveur LTG</a></li><li><a href="#54-tache-4-supervision-de-la-domotique-et-eclairage-de-nuit">5.4 Tâche 4 : supervision de la domotique et éclairage de nuit</a></li></ol></li><li><a href="#6-kart-electrique">6. Kart électrique</a><ol><li><a href="#61-tache-5-variateur">6.1 Tâche 5 : variateur</a></li><li><a href="#62-tache-6-tableau-de-bord-et-supervision-du-kart-de-la-borne-et-du-solaire">6.2 Tâche 6 : tableau de bord et supervision du kart, de la borne et du solaire</a></li><li><a href="#63-tache-7-conduite-semi-autonome-puis-autonome">6.3 Tâche 7 : conduite semi-autonome puis autonome</a></li></ol></li><li><a href="#7-recharge-et-energie-solaire">7. Recharge et énergie solaire</a><ol><li><a href="#71-tache-8-borne-de-recharge-et-outil-de-test">7.1 Tâche 8 : borne de recharge et outil de test</a></li><li><a href="#72-tache-9-production-solaire-et-stockage">7.2 Tâche 9 : production solaire et stockage</a></li></ol></li><li><a href="#8-securite-et-normes">8. Sécurité et normes</a></li><li><a href="#9-bancs-de-test-et-validation">9. Bancs de test et validation</a></li><li><a href="#10-planning">10. Planning</a></li><li><a href="#11-maintenance-et-cahier-de-pannes">11. Maintenance et cahier de pannes</a></li><li><a href="#12-points-restant-a-valider">12. Points restant à valider</a></li></ol>
+    </details>
+  </nav>
+
+  <main class="contenu">
+<h2 id="1-presentation-du-projet">1. Présentation du projet</h2>
+<p>Ce cahier des charges a été rédigé en groupe les 26 et 27 novembre 2026, dans le cadre de la SAÉ de 3e année du BUT GEII de l'IUT de Troyes. Il décrit le fonctionnement attendu du projet dans sa globalité. Le choix du matériel, les références des composants, le chiffrage et la faisabilité de certaines solutions seront traités ensuite, dans l'analyse fonctionnelle.</p>
+<p>Le projet comporte deux parties. D'un côté, un kart déjà électrique que nous devons rendre semi-autonome puis autonome, et qui sera rechargé sur une borne alimentée par des panneaux solaires. De l'autre, la domotique de l'espace GEII : arrosage des plantes, accès à la salle d'impression 3D, surveillance du local serveur LTG et éclairage de nuit.</p>
+<h3 id="11-objectifs">1.1 Objectifs</h3>
+<p>À la fin de la SAÉ, le projet devra permettre :</p>
+<ol>
+<li>de faire rouler le kart en mode manuel, puis semi-autonome, puis autonome (suivi de trajectoire et stationnement) ;</li>
+<li>de recharger le kart sur une borne conforme aux normes de recharge des véhicules électriques, que l'on pourra tester avec un outil dédié ;</li>
+<li>d'alimenter cette borne en priorité avec l'énergie des panneaux solaires ;</li>
+<li>de gérer la domotique de l'espace GEII : arrosage des plantes, salle d'impression 3D (badge, température, humidité, présence), local serveur LTG (climatisation, ventilation, alertes) et éclairage de nuit ;</li>
+<li>de suivre l'ensemble depuis deux supervisions, l'une pour la domotique, l'autre pour le kart et l'énergie ;</li>
+<li>de valider chaque système sur un banc de test, puis de rédiger un cahier de pannes.</li>
+</ol>
+<h3 id="12-expression-du-besoin">1.2 Expression du besoin</h3>
+<figure class="schema"><img src="assets/fig/fig1-bete-projet.svg" alt="Bête à cornes du projet" width="760" height="276"><figcaption>Figure 1 : Bête à cornes du projet</figcaption></figure>
+
+<h2 id="2-organisation-du-travail">2. Organisation du travail</h2>
+<p>Le cahier des charges et l'analyse fonctionnelle sont réalisés en groupe. Ensuite, chacun travaille seul sur sa partie. Le projet est découpé en 9 tâches de deux parties chacune. Le tableau ci-dessous est notre proposition de découpage, elle reste à valider en revue.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Sujet</th>
+<th>Partie 1</th>
+<th>Partie 2</th>
+<th>Dépend de</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tâche 1</td>
+<td>Arrosage des plantes</td>
+<td>Mesure de l'humidité de la terre</td>
+<td>Arrosage et réservoir</td>
+<td>Tâche 4</td>
+</tr>
+<tr>
+<td>Tâche 2</td>
+<td>Salle d'impression 3D</td>
+<td>Contrôle d'accès par badge</td>
+<td>Température, humidité, présence</td>
+<td>Tâche 4</td>
+</tr>
+<tr>
+<td>Tâche 3</td>
+<td>Local serveur LTG</td>
+<td>Mesures, alertes, affichage</td>
+<td>Commande de la clim, ventilation, fenêtre</td>
+<td>Tâche 4</td>
+</tr>
+<tr>
+<td>Tâche 4</td>
+<td>Supervision de la domotique et éclairage</td>
+<td>Supervision de la domotique</td>
+<td>Éclairage de nuit</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tâche 5</td>
+<td>Variateur (pilotage moteur)</td>
+<td>Partie puissance</td>
+<td>Partie commande, protections et freinage récupératif</td>
+<td>Kart</td>
+</tr>
+<tr>
+<td>Tâche 6</td>
+<td>Tableau de bord et supervision du kart, de la borne et du solaire</td>
+<td>Tableau de bord à deux écrans et localisation GPS</td>
+<td>Supervision du kart, de la borne et du solaire</td>
+<td>Tâches 5, 7, 8 et 9</td>
+</tr>
+<tr>
+<td>Tâche 7</td>
+<td>Conduite autonome</td>
+<td>Détection de ligne et trajectoire</td>
+<td>Direction et stationnement autonome</td>
+<td>Tâche 5</td>
+</tr>
+<tr>
+<td>Tâche 8</td>
+<td>Borne de recharge</td>
+<td>Borne</td>
+<td>Outil de test de la borne</td>
+<td>Tâche 9</td>
+</tr>
+<tr>
+<td>Tâche 9</td>
+<td>Solaire et stockage</td>
+<td>Production solaire</td>
+<td>Stockage et mesure de l'énergie</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="21-intervenants-exterieurs">2.1 Intervenants extérieurs</h3>
+<p>Le projet ne repose pas uniquement sur les étudiants de GEII. Les étudiants de GMP réalisent le socle de la borne ainsi que la structure mécanique du kart. Les étudiants de TC et de GEA se chargent de chercher des financements pour acheter des panneaux solaires supplémentaires. Cette piste reste incertaine, mais une chose est sûre : les panneaux déjà installés à l'IUT ne suffiront pas, il en faudra davantage.</p>
+<p>Pour les interventions sur les parties en 230 V, les habilitations électriques nécessaires sont présentes au département GEII.</p>
+<h2 id="3-architecture-generale">3. Architecture générale</h2>
+<p>Le projet repose sur deux supervisions indépendantes. La première, réalisée dans la tâche 4, regroupe la domotique du département. La seconde, réalisée dans la tâche 6, regroupe le kart, la borne et l'installation solaire. Elles ne communiquent pas entre elles : nous n'en voyons pas l'utilité, et cela évite qu'un problème d'un côté perturbe l'autre.</p>
+<p>Chaque système envoie ses mesures à sa supervision, qui permet aussi de le commander et d'en garder l'historique. À l'intérieur du kart, les cartes électroniques communiquent entre elles par un bus filaire.</p>
+<figure class="schema"><img src="assets/fig/fig2-architecture.svg" alt="Architecture générale du projet" width="760" height="520"><figcaption>Figure 2 : Architecture générale du projet</figcaption></figure>
+
+<p>Quelques règles s'appliquent à toutes les tâches :</p>
+<ul>
+<li>chaque système est rattaché à une seule supervision ;</li>
+<li>les moyens de communication sont choisis parmi ceux présentés en partie 4 ;</li>
+<li>une règle de nommage commune des données est fixée dès le début ;</li>
+<li>chaque système indique à sa supervision s'il est en ligne ou non ;</li>
+<li>un système qui perd la communication garde ses fonctions de sécurité ;</li>
+<li>les schémas et les programmes sont rangés dans un espace partagé.</li>
+</ul>
+<h2 id="4-moyens-de-communication-envisages">4. Moyens de communication envisagés</h2>
+<p>Le cadre commun fixé par les enseignants impose MQTT et Zigbee pour la domotique. Nous avons tout de même listé d'autres solutions, pour pouvoir comparer. Le choix définitif se fera pendant l'analyse fonctionnelle, et tout écart avec le cadre commun devra être validé par les enseignants.</p>
+<p>On distingue la liaison, c'est-à-dire le support physique (ondes radio ou câble), et le protocole, qui définit la façon dont les messages sont organisés. MQTT, par exemple, est un protocole qui passe le plus souvent par une liaison Wi-Fi ou Ethernet.</p>
+<h3 id="41-liaisons-sans-fil">4.1 Liaisons sans fil</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Principe</th>
+<th>Avantages</th>
+<th>Contraintes</th>
+<th>Utilisation possible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wi-Fi</td>
+<td>Réseau local sans fil</td>
+<td>Débit élevé, réseau déjà présent dans le bâtiment, simple à mettre en place</td>
+<td>Consomme beaucoup (peu adapté aux piles), portée de quelques dizaines de mètres, dépend du réseau de l'IUT</td>
+<td>Supervisions, borne, kart</td>
+</tr>
+<tr>
+<td>Zigbee</td>
+<td>Réseau maillé : chaque appareil peut relayer les messages des autres</td>
+<td>Très faible consommation, portée étendue grâce au maillage, beaucoup de capteurs disponibles dans le commerce</td>
+<td>Faible débit, nécessite une passerelle, bande 2,4 GHz partagée avec le Wi-Fi</td>
+<td>Capteurs de la domotique</td>
+</tr>
+<tr>
+<td>Bluetooth basse consommation (BLE)</td>
+<td>Liaison directe à courte portée</td>
+<td>Très faible consommation, présent sur tous les téléphones</td>
+<td>Portée d'une dizaine de mètres, pas adapté à tout un bâtiment</td>
+<td>Réglage d'un appareil depuis un téléphone</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="42-liaisons-filaires">4.2 Liaisons filaires</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Principe</th>
+<th>Avantages</th>
+<th>Contraintes</th>
+<th>Utilisation possible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus CAN</td>
+<td>Bus deux fils utilisé dans l'automobile</td>
+<td>Très fiable, résiste bien aux perturbations électriques, gestion des priorités entre messages</td>
+<td>Câblage, longueur limitée</td>
+<td>Entre les cartes du kart</td>
+</tr>
+<tr>
+<td>RS-485 / Modbus</td>
+<td>Bus série industriel</td>
+<td>Longue distance, robuste, utilisé par beaucoup d'onduleurs et de compteurs d'énergie</td>
+<td>Câblage, débit faible, un seul maître qui interroge les autres</td>
+<td>Solaire, compteur d'énergie, borne</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>Réseau filaire, alimentation possible par le même câble</td>
+<td>Très fiable, débit élevé</td>
+<td>Câblage dans le bâtiment, accord de l'administrateur réseau</td>
+<td>Serveurs de supervision, borne, local LTG</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="43-protocoles">4.3 Protocoles</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Principe</th>
+<th>Avantages</th>
+<th>Contraintes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MQTT</td>
+<td>Les appareils publient leurs données sur un serveur central, qui les redistribue</td>
+<td>Léger, temps réel, très utilisé en domotique, imposé par le cadre commun</td>
+<td>Si le serveur central tombe, plus rien ne circule</td>
+</tr>
+<tr>
+<td>HTTP (API web)</td>
+<td>Fonctionnement en question-réponse, comme un site web</td>
+<td>Simple, universel, facile à tester</td>
+<td>Plus lourd, il faut interroger l'appareil régulièrement</td>
+</tr>
+<tr>
+<td>WebSocket</td>
+<td>Connexion permanente dans les deux sens</td>
+<td>Bien adapté pour afficher des données en direct sur une page web</td>
+<td>La connexion doit être maintenue en permanence</td>
+</tr>
+<tr>
+<td>Modbus</td>
+<td>Un maître vient lire des registres dans chaque appareil</td>
+<td>Standard industriel, déjà présent sur les onduleurs et les compteurs</td>
+<td>Pas d'envoi spontané, données brutes à interpréter</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="44-criteres-de-choix">4.4 Critères de choix</h3>
+<ul>
+<li>La portée : le kart doit rester joignable sur toute la piste, et la domotique doit couvrir toutes les salles concernées.</li>
+<li>Le temps de réponse : les commandes du kart doivent être immédiates, alors qu'une alerte de température envoyée dans la minute suffit.</li>
+<li>La consommation : un capteur alimenté par pile impose une liaison basse consommation comme le Zigbee ou le BLE.</li>
+<li>La fiabilité : aucune fonction de sécurité ne doit dépendre uniquement d'une liaison sans fil.</li>
+<li>La sécurité informatique : messages chiffrés, mots de passe, réseau isolé, avec l'accord de l'administrateur réseau.</li>
+<li>Les perturbations : la bande 2,4 GHz est partagée entre le Wi-Fi, le Zigbee et le Bluetooth. Dans le kart, l'électronique de puissance perturbe les signaux, d'où l'intérêt de liaisons filaires blindées.</li>
+<li>La réglementation : le matériel radio utilisé doit porter le marquage CE.</li>
+</ul>
+<h3 id="45-premiere-proposition">4.5 Première proposition</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Liaison</th>
+<th>Solution proposée</th>
+<th>Solution de repli</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capteurs de la domotique vers leur supervision</td>
+<td>Zigbee (cadre commun)</td>
+<td>Wi-Fi et MQTT</td>
+</tr>
+<tr>
+<td>Équipements alimentés sur secteur (clim, porte, éclairage)</td>
+<td>Wi-Fi ou Ethernet, avec MQTT</td>
+<td>RS-485 / Modbus</td>
+</tr>
+<tr>
+<td>Cartes du kart entre elles</td>
+<td>Bus CAN</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Kart vers la supervision au sol</td>
+<td>Wi-Fi couvrant toute la piste</td>
+<td>À étudier dans l'analyse fonctionnelle</td>
+</tr>
+<tr>
+<td>Borne vers la supervision kart et énergie</td>
+<td>Ethernet ou RS-485 / Modbus</td>
+<td>Wi-Fi et MQTT</td>
+</tr>
+<tr>
+<td>Installation solaire</td>
+<td>Base Victron déjà en place (VictronConnect)</td>
+<td>Supervision développée par nous si besoin</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="5-domotique-du-departement">5. Domotique du département</h2>
+<p>Cette partie comprend quatre tâches : l'arrosage des plantes, la salle d'impression 3D, le local serveur LTG, puis la supervision de la domotique avec l'éclairage de nuit.</p>
+<figure class="schema"><img src="assets/fig/fig3-bete-domotique.svg" alt="Bête à cornes de la domotique" width="760" height="276"><figcaption>Figure 3 : Bête à cornes de la domotique</figcaption></figure>
+
+<h3 id="51-tache-1-arrosage-des-plantes">5.1 Tâche 1 : arrosage des plantes</h3>
+<p>Le département compte 3 plantes d'intérieur, alimentées par un réservoir d'eau que l'on remplit à la main. Le système doit les arroser automatiquement selon l'humidité de leur terre, et prévenir quand il faut remplir le réservoir.</p>
+<h4 id="fonctions-attendues">Fonctions attendues</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesurer l'humidité</td>
+<td>Mesurer régulièrement l'humidité de la terre de chacune des 3 plantes</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Arroser automatiquement</td>
+<td>Arroser une plante quand sa terre est trop sèche, avec un seuil réglable pour chacune</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Limiter l'arrosage</td>
+<td>Couper l'arrosage après une durée maximale, même si la mesure ne répond plus</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Surveiller le réservoir</td>
+<td>Bloquer l'arrosage et prévenir quand le réservoir est vide</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Arroser à distance</td>
+<td>Lancer un arrosage depuis la supervision</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Garder un historique</td>
+<td>Pouvoir consulter l'humidité et les arrosages dans la supervision</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Mesurer l'ambiance</td>
+<td>Mesurer la luminosité et la température près des plantes</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes">Contraintes</h4>
+<p>Le système fonctionne uniquement en très basse tension, aucun 230 V ne doit se trouver à proximité de l'eau. Un bac de rétention sera placé sous le réservoir et sous les pots pour limiter les dégâts en cas de fuite. Comme le réservoir est rempli à la main, il doit tenir plusieurs jours entre deux remplissages.</p>
+<h3 id="52-tache-2-salle-dimpression-3d">5.2 Tâche 2 : salle d'impression 3D</h3>
+<p>La salle d'impression 3D a une porte classique avec une serrure à clé et un cliquet commandé par badge, installé l'année dernière. Nous partons de cet existant : il faut le reprendre, le fiabiliser et le relier à la supervision. En plus de l'accès, la salle doit être surveillée (température, humidité, présence) pour protéger les imprimantes et les filaments.</p>
+<div class="photos p2">
+<figure><a href="assets/img/salle-3d.jpg"><img src="assets/img/salle-3d.jpg" alt="la salle d&#x27;impression 3D" width="480" height="640" loading="lazy"></a><figcaption>Photo 1 : la salle d'impression 3D</figcaption></figure>
+<figure><a href="assets/img/salle-3d-cliquet.jpg"><img src="assets/img/salle-3d-cliquet.jpg" alt="le cliquet commandé par badge, installé l&#x27;an dernier dans l&#x27;encadrement de la porte" width="480" height="640" loading="lazy"></a><figcaption>Photo 2 : le cliquet commandé par badge, installé l'an dernier dans l'encadrement de la porte</figcaption></figure>
+</div>
+
+<h4 id="controle-dacces">Contrôle d'accès</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ouvrir avec un badge</td>
+<td>La porte s'ouvre quand un badge autorisé est présenté au lecteur RFID</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Refuser les badges non autorisés</td>
+<td>Un badge inconnu ou retiré est refusé, le refus est signalé et la porte reste fermée</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Gérer les badges</td>
+<td>Ajouter ou retirer un badge depuis la supervision</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Garder un journal</td>
+<td>Enregistrer chaque passage : badge utilisé, date et heure, accepté ou refusé</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Sortir librement</td>
+<td>La porte s'ouvre de l'intérieur sans badge, même en cas de coupure de courant</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Garder l'ouverture à clé</td>
+<td>La serrure à clé reste utilisable en secours</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Fonctionner sans réseau</td>
+<td>Les badges autorisés restent reconnus si le réseau est coupé</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alerter si la porte reste ouverte</td>
+<td>Prévenir au-delà d'une durée réglable</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Horaires d'accès</td>
+<td>Limiter l'accès à certains créneaux selon le badge</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="surveillance-de-la-salle">Surveillance de la salle</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesurer la température et l'humidité</td>
+<td>En continu, avec affichage dans la supervision</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Détecter une présence</td>
+<td>Savoir si quelqu'un se trouve dans la salle</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alerter sur l'ambiance</td>
+<td>Prévenir si la température ou l'humidité sortent d'une plage réglable</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Détecter une intrusion</td>
+<td>Une présence détectée sans passage de badge déclenche une alerte</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Surveiller la qualité de l'air</td>
+<td>Détecter les fumées dégagées par les impressions</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_1">Contraintes</h4>
+<p>La porte doit pouvoir s'ouvrir en cas de coupure de courant. Il faudra vérifier que le cliquet existant respecte bien ce point. Les badges sont des données personnelles au sens du RGPD : on ne stocke que le strict nécessaire, les journaux sont conservés pendant une durée limitée et les utilisateurs sont informés.</p>
+<h4 id="points-a-preciser">Points à préciser</h4>
+<p>État de fonctionnement du système de badge existant, et documentation laissée par le groupe de l'an dernier. Liste des personnes autorisées et personne chargée de la gérer. Plage de température et d'humidité adaptée aux imprimantes et aux filaments.</p>
+<h3 id="53-tache-3-local-serveur-ltg">5.3 Tâche 3 : local serveur LTG</h3>
+<p>Le local LTG héberge des équipements réseau Cisco et des serveurs Dell. Le cahier des charges de départ fixe trois seuils : la température doit être maintenue à 22 °C, la climatisation doit obligatoirement démarrer à 25 °C, et un mail d'alerte doit être envoyé à 28 °C. La chaleur produite par les serveurs pourra être récupérée si c'est faisable.</p>
+<p>Les températures recommandées sont de 20 à 25 °C pour les équipements Cisco et de 21 à 25 °C pour les Dell. La plage à respecter pour l'ensemble du local est donc de 21 à 25 °C.</p>
+<p>La climatisation en place est une Atlantic Fujitsu DC Inverter. Aujourd'hui, elle se commande uniquement avec sa télécommande infrarouge.</p>
+<div class="photos p3">
+<figure><a href="assets/img/ltg-baies.jpg"><img src="assets/img/ltg-baies.jpg" alt="les baies du local LTG" width="480" height="640" loading="lazy"></a><figcaption>Photo 3 : les baies du local LTG</figcaption></figure>
+<figure><a href="assets/img/ltg-clim.jpg"><img src="assets/img/ltg-clim.jpg" alt="l&#x27;unité intérieure de la climatisation" width="480" height="640" loading="lazy"></a><figcaption>Photo 4 : l'unité intérieure de la climatisation</figcaption></figure>
+<figure><a href="assets/img/ltg-telecommande.jpg"><img src="assets/img/ltg-telecommande.jpg" alt="la télécommande infrarouge, fixée au mur à côté des baies" width="480" height="640" loading="lazy"></a><figcaption>Photo 5 : la télécommande infrarouge, fixée au mur à côté des baies</figcaption></figure>
+</div>
+
+<h4 id="fonctions-attendues_1">Fonctions attendues</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maintenir 22 °C</td>
+<td>Réguler la température du local autour de 22 °C</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Déclencher la clim à 25 °C</td>
+<td>Démarrage obligatoire, même si la supervision est en panne</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alerter par mail à 28 °C</td>
+<td>Envoyer un mail aux responsables du local</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Mesurer en plusieurs points</td>
+<td>Dans le local, à l'entrée et à la sortie d'air de la baie</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Afficher à l'extérieur</td>
+<td>Température et alertes visibles devant la porte, si possible intégrées à la porte</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Piloter la clim existante</td>
+<td>Commander la clim à la place de sa télécommande infrarouge</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Vérifier que la clim fonctionne</td>
+<td>Contrôler que la clim a bien démarré après un ordre</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Recycler l'air de la baie</td>
+<td>Adapter la ventilation selon la température de la baie</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Surveiller la fenêtre</td>
+<td>Savoir si la fenêtre est ouverte et adapter la clim en conséquence</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Récupérer la chaleur</td>
+<td>Réutiliser la chaleur du local, par exemple pour le chauffe-eau</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_2">Contraintes</h4>
+<p>Le local héberge des équipements en service : aucune coupure et aucune intervention sans l'accord de l'administrateur réseau. Les seuils de 25 °C et de 28 °C doivent être assurés localement, pas seulement par la supervision. Comme la clim pilotée par télécommande infrarouge ne confirme pas les ordres reçus, il faut un moyen de vérifier qu'elle a bien démarré. Enfin, il faut éviter les marche-arrêt répétés autour des seuils.</p>
+<h4 id="points-a-preciser_1">Points à préciser</h4>
+<p>Référence exacte de l'unité intérieure, pour savoir si la clim accepte une commande autre que l'infrarouge. Destinataires du mail d'alerte. Faisabilité de la récupération de chaleur vers le chauffe-eau.</p>
+<h3 id="54-tache-4-supervision-de-la-domotique-et-eclairage-de-nuit">5.4 Tâche 4 : supervision de la domotique et éclairage de nuit</h3>
+<p>Cette tâche fournit la supervision utilisée par les tâches 1, 2 et 3. Elle doit donc être opérationnelle en premier. Elle comprend aussi la gestion de l'éclairage de nuit dans le département.</p>
+<h4 id="supervision-de-la-domotique">Supervision de la domotique</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Superviser en permanence</td>
+<td>Logiciel de supervision (de type Home Assistant) disponible en continu, qui redémarre seul après une coupure</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Recevoir les données des salles</td>
+<td>Plantes, salle d'impression 3D, local LTG, éclairage</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Commander les équipements</td>
+<td>Arrosage, clim, ventilation, éclairage, gestion des badges</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Garder l'historique</td>
+<td>Conserver les données et les afficher sous forme de courbes</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Envoyer des alertes</td>
+<td>Par mail et sur téléphone</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Présenter une vue par salle</td>
+<td>Une page par salle avec son état et ses alertes</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Sauvegarder la configuration</td>
+<td>Sauvegarde régulière, avec possibilité de restauration</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="eclairage-de-nuit">Éclairage de nuit</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allumer sur présence</td>
+<td>Allumer quand quelqu'un passe, uniquement quand il fait sombre</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Éteindre automatiquement</td>
+<td>Éteindre après une durée réglable sans présence</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Respecter un horaire</td>
+<td>Fonction active uniquement sur une plage horaire réglable</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Suivre la consommation</td>
+<td>Temps d'allumage et énergie économisée</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_3">Contraintes</h4>
+<p>Le serveur de supervision tourne sur une machine dédiée, installée à demeure dans le département, et le réseau utilisé doit être validé avec l'administrateur réseau de l'IUT. L'éclairage doit rester commandable à la main : une panne du système ne doit jamais laisser une zone dans le noir. Toute commande en 230 V passe par du matériel certifié ou par l'électricien du bâtiment.</p>
+<h2 id="6-kart-electrique">6. Kart électrique</h2>
+<p>Le kart est déjà électrique. Sa structure mécanique est reprise par les étudiants de GMP, et notre travail porte sur la partie électrique et électronique : variateur, tableau de bord, supervision et conduite autonome.</p>
+<div class="photos p2">
+<figure><a href="assets/img/kart-profil.jpg"><img src="assets/img/kart-profil.jpg" alt="le kart électrique existant" width="480" height="640" loading="lazy"></a><figcaption>Photo 6 : le kart électrique existant</figcaption></figure>
+<figure><a href="assets/img/kart-arriere.jpg"><img src="assets/img/kart-arriere.jpg" alt="le kart vu de l&#x27;autre côté : radiateur de refroidissement, chargeur et batteries" width="480" height="640" loading="lazy"></a><figcaption>Photo 7 : le kart vu de l'autre côté : radiateur de refroidissement, chargeur et batteries</figcaption></figure>
+</div>
+
+<p>Le kart roule sur une zone fermée, en très basse tension, avec une tension maximale de 48 V. Une seule recharge doit lui permettre de parcourir 70 km dans la journée. La puissance et les vitesses maximales seront fixées dans l'analyse fonctionnelle.</p>
+<figure class="schema"><img src="assets/fig/fig4-bete-kart.svg" alt="Bête à cornes du kart" width="760" height="276"><figcaption>Figure 4 : Bête à cornes du kart</figcaption></figure>
+
+<p>Le diagramme pieuvre ci-dessous montre les éléments avec lesquels le kart est en relation. Une fonction principale (FP) relie deux éléments par l'intermédiaire du kart. Une fonction contrainte (FC) relie le kart à un seul élément.</p>
+<figure class="schema"><img src="assets/fig/fig5-pieuvre-kart.svg" alt="Diagramme pieuvre du kart" width="760" height="466"><figcaption>Figure 5 : Diagramme pieuvre du kart</figcaption></figure>
+
+<div class="table"><table>
+<thead>
+<tr>
+<th>Repère</th>
+<th>Fonction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP1</td>
+<td>Permettre au pilote de se déplacer sur la piste</td>
+</tr>
+<tr>
+<td>FP2</td>
+<td>Permettre à l'opérateur de faire rouler le kart seul sur la piste</td>
+</tr>
+<tr>
+<td>FC1</td>
+<td>Détecter les obstacles et s'arrêter avant eux</td>
+</tr>
+<tr>
+<td>FC2</td>
+<td>Se recharger sur la borne</td>
+</tr>
+<tr>
+<td>FC3</td>
+<td>Échanger avec la supervision : envoyer son état et sa position, recevoir le mode de conduite</td>
+</tr>
+<tr>
+<td>FC4</td>
+<td>Résister au milieu extérieur : pluie, poussière, chaleur</td>
+</tr>
+<tr>
+<td>FC5</td>
+<td>Respecter les normes et les règles de sécurité</td>
+</tr>
+</tbody>
+</table></div>
+<p>La figure 6 donne une première idée de l'emplacement des éléments. Les deux batteries sont placées de chaque côté du siège pour équilibrer le poids. Les positions seront confirmées avec les étudiants de GMP.</p>
+<figure class="schema"><img src="assets/fig/fig6-implantation-kart.svg" alt="Implantation des éléments sur le kart, vue de dessus" width="760" height="340"><figcaption>Figure 6 : Implantation des éléments sur le kart, vue de dessus</figcaption></figure>
+
+<h4 id="caracteristiques-generales">Caractéristiques générales</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Ce qui est attendu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alimentation</td>
+<td>Batterie lithium fer phosphate (LiFePO4) en très basse tension, 48 V au maximum</td>
+</tr>
+<tr>
+<td>Autonomie</td>
+<td>70 km dans la journée avec une seule recharge</td>
+</tr>
+<tr>
+<td>Motorisation</td>
+<td>Moteur électrique existant, piloté par le variateur (Tâche 5)</td>
+</tr>
+<tr>
+<td>Freinage</td>
+<td>Frein mécanique, complété par un freinage moteur qui renvoie de l'énergie vers la batterie</td>
+</tr>
+<tr>
+<td>Direction</td>
+<td>Volant conservé, direction motorisée pour le mode autonome</td>
+</tr>
+<tr>
+<td>Tableau de bord</td>
+<td>Deux écrans : un pour les informations de conduite, un pour la carte GPS</td>
+</tr>
+<tr>
+<td>Localisation</td>
+<td>Au moins une balise GPS</td>
+</tr>
+<tr>
+<td>Communication interne</td>
+<td>Bus de communication entre les cartes du kart</td>
+</tr>
+<tr>
+<td>Communication externe</td>
+<td>Liaison sans fil avec la supervision au sol</td>
+</tr>
+<tr>
+<td>Recharge</td>
+<td>Prise compatible avec la borne (Tâche 8) et chargeur</td>
+</tr>
+<tr>
+<td>Sécurité</td>
+<td>Arrêt d'urgence sur le kart et arrêt à distance</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="modes-de-fonctionnement">Modes de fonctionnement</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Qui commande</th>
+<th>Conditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arrêt</td>
+<td>Personne, moteur coupé</td>
+<td>Contact coupé ou arrêt d'urgence enclenché</td>
+</tr>
+<tr>
+<td>Manuel</td>
+<td>Le pilote (pédale, volant)</td>
+<td>Pilote assis, frein appuyé au démarrage</td>
+</tr>
+<tr>
+<td>Semi-autonome</td>
+<td>Le pilote, avec des alertes (franchissement de ligne, détection d'obstacle)</td>
+<td>Lignes détectées</td>
+</tr>
+<tr>
+<td>Autonome</td>
+<td>Le calculateur de la tâche 7</td>
+<td>Zone dégagée, opérateur muni de la télécommande d'arrêt</td>
+</tr>
+<tr>
+<td>Charge</td>
+<td>La borne et le chargeur</td>
+<td>Kart à l'arrêt et câble branché : le kart ne peut pas rouler</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Banc de test</td>
+<td>Roues levées ou moteur découplé</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="points-a-preciser_2">Points à préciser</h4>
+<p>Les 48 V correspondent-ils à la tension nominale ou à la tension maximale batterie pleine ? Il faut aussi relever les caractéristiques des batteries en place : des cellules de 3,2 V, et deux batteries mesurées à environ 20,6 V, sans doute déchargées. Enfin, la zone d'essai et les vitesses maximales en manuel et en autonome restent à définir.</p>
+<h3 id="61-tache-5-variateur">6.1 Tâche 5 : variateur</h3>
+<p>Le variateur alimente le moteur à partir de la batterie. Il reçoit une consigne de la pédale en mode manuel, ou du calculateur de conduite autonome, et il doit se couper seul en cas de défaut. Au freinage, il doit renvoyer de l'énergie vers la batterie, ce qui aidera à tenir les 70 km demandés.</p>
+<h4 id="fonctions-attendues_2">Fonctions attendues</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faire tourner le moteur</td>
+<td>Marche avant et marche arrière, la marche arrière à vitesse réduite</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Suivre une consigne</td>
+<td>Consigne venant de la pédale en manuel, du calculateur en autonome</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Récupérer l'énergie au freinage</td>
+<td>Renvoyer de l'énergie vers la batterie lors des freinages, sans dépasser ce qu'elle peut accepter</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Limiter le courant</td>
+<td>Couper rapidement en cas de surintensité</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Se protéger</td>
+<td>Contre la surtension, la sous-tension et la surchauffe</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Couper sur arrêt d'urgence</td>
+<td>Coupure câblée, qui ne dépend pas du programme</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Transmettre ses mesures</td>
+<td>Envoyer la vitesse, le courant, la tension, la température et les défauts au tableau de bord</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Accélérer sans à-coup</td>
+<td>Montée progressive de la vitesse</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_4">Contraintes</h4>
+<p>La partie puissance est séparée de la partie commande, et le refroidissement des composants de puissance est prévu dès la conception. Les premiers essais se font sur une alimentation limitée en courant, jamais directement sur la batterie. Les règles de compatibilité électromagnétique vues en cours doivent être respectées.</p>
+<p>Si le variateur conçu n'est pas fiable à temps, un variateur du commerce sera utilisé pour faire rouler le kart, afin de ne pas bloquer les tâches 6 et 7. Le variateur conçu sera alors évalué sur son banc de test.</p>
+<h3 id="62-tache-6-tableau-de-bord-et-supervision-du-kart-de-la-borne-et-du-solaire">6.2 Tâche 6 : tableau de bord et supervision du kart, de la borne et du solaire</h3>
+<p>Le kart est déjà équipé de deux écrans, montés de part et d'autre du volant (photo 8). Le premier affiche les informations de conduite, le second une carte avec la position GPS du kart, si c'est réalisable. Dans tous les cas, le kart doit être équipé d'au moins une balise GPS pour pouvoir le localiser. Au sol, une supervision regroupe le kart, la borne et l'installation solaire.</p>
+<div class="photos p1">
+<figure><a href="assets/img/kart-poste-pilotage.jpg"><img src="assets/img/kart-poste-pilotage.jpg" alt="le poste de pilotage avec ses deux écrans. À l&#x27;arrière, le chargeur Victron Titan 48/50 et le bouton d&#x27;arrêt d&#x27;urgence" width="480" height="640" loading="lazy"></a><figcaption>Photo 8 : le poste de pilotage avec ses deux écrans. À l'arrière, le chargeur Victron Titan 48/50 et le bouton d'arrêt d'urgence</figcaption></figure>
+</div>
+
+<h4 id="tableau-de-bord-sur-le-kart">Tableau de bord (sur le kart)</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afficher la vitesse</td>
+<td>Écran 1, en temps réel</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Afficher la batterie</td>
+<td>Écran 1, niveau de charge et autonomie restante</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Afficher les alertes</td>
+<td>Écran 1, voyants et messages : batterie faible, surchauffe, défaut, arrêt d'urgence, franchissement de ligne, obstacle, perte de liaison</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Afficher le mode</td>
+<td>Écran 1, mode manuel, semi-autonome, autonome ou charge</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Localiser le kart</td>
+<td>Balise GPS embarquée, position envoyée à la supervision</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Afficher une carte</td>
+<td>Écran 2, carte avec la position du kart</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Être lisible en extérieur</td>
+<td>Écrans lisibles en plein jour</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Enregistrer les trajets</td>
+<td>Garder les données de chaque trajet</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="supervision-du-kart-de-la-borne-et-du-solaire-au-sol">Supervision du kart, de la borne et du solaire (au sol)</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suivre le kart</td>
+<td>Vitesse, batterie, autonomie, températures, défauts, mode et position</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Choisir le mode de conduite</td>
+<td>Changement de mode accepté uniquement quand le kart est à l'arrêt</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Signaler une perte de liaison</td>
+<td>Si la liaison avec le kart est perdue, un message d'alerte s'affiche sur la supervision et sur le tableau de bord. Le kart n'est pas arrêté pour autant</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Suivre la borne</td>
+<td>État de la borne (libre, en charge, en défaut) et énergie de chaque recharge</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Suivre le solaire</td>
+<td>Production, niveau de la batterie de stockage, part du solaire dans les recharges</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Garder l'historique</td>
+<td>Trajets, recharges, énergie produite et consommée</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Alerter</td>
+<td>Défaut du kart, défaut de la borne, batterie de stockage trop basse</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pour la partie solaire, une base VictronConnect est déjà en place. Il reste à voir si elle suffit, ou s'il faut développer notre propre supervision et y reprendre les données Victron.</p>
+<h4 id="contraintes_5">Contraintes</h4>
+<p>Le tableau de bord affiche des informations, il ne commande pas le moteur. L'arrêt d'urgence ne dépend jamais des écrans ni de la liaison sans fil. La liaison avec le kart doit couvrir toute la piste (voir partie 4). Avant de programmer, les tâches 5, 6 et 7 écrivent ensemble la liste des informations échangées dans le kart.</p>
+<h3 id="63-tache-7-conduite-semi-autonome-puis-autonome">6.3 Tâche 7 : conduite semi-autonome puis autonome</h3>
+<p>La conduite autonome sera développée en trois étapes, chacune validée avant de passer à la suivante : d'abord l'aide au pilote, ensuite le suivi de trajectoire, enfin le stationnement autonome. Les essais se feront sur une piste balisée par des lignes au sol.</p>
+<h4 id="etape-1-mode-semi-autonome-le-pilote-conduit">Étape 1 : mode semi-autonome, le pilote conduit</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Détecter les lignes</td>
+<td>Repérer les lignes de la piste, en intérieur comme en extérieur</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alerter avant un franchissement</td>
+<td>Alerte sonore et visuelle avant que le kart ne franchisse une ligne</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alerter en cas d'obstacle</td>
+<td>Prévenir le pilote qu'un obstacle se trouve devant le kart</td>
+<td>Obligatoire</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="etape-2-mode-autonome-sur-la-piste">Étape 2 : mode autonome sur la piste</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Piloter la direction</td>
+<td>Orienter les roues à l'angle demandé, avec des limites de sécurité</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Suivre la trajectoire</td>
+<td>Garder le kart au centre de la voie sur un tour complet</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Commander la vitesse</td>
+<td>Envoyer la consigne au variateur, avec une vitesse limitée en autonome</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>S'arrêter devant un obstacle</td>
+<td>Arrêter le kart avant un obstacle situé devant lui</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Rendre la main au pilote</td>
+<td>Repasser en manuel dès que le pilote freine ou tourne le volant</td>
+<td>Obligatoire</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="etape-3-stationnement-autonome">Étape 3 : stationnement autonome</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trouver une place</td>
+<td>Repérer une place libre marquée au sol</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Se garer seul</td>
+<td>Entrer dans la place sans contact, marche arrière comprise</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Se garer devant la borne</td>
+<td>Placer la prise du kart à portée du câble de la borne</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_6">Contraintes</h4>
+<p>Les essais se font progressivement : d'abord roues levées, puis au pas, puis à la vitesse autorisée. En mode autonome, un opérateur garde en main une télécommande d'arrêt, indépendante de la supervision. Si un capteur de conduite tombe en panne, le kart s'arrête. En revanche, une perte de liaison avec la supervision ne provoque qu'un message d'alerte. Le volant reste relié aux roues, ou bien la direction motorisée doit pouvoir être débrayée.</p>
+<h4 id="points-a-preciser_3">Points à préciser</h4>
+<p>Type et largeur des lignes au sol, piste disponible, vitesse maximale en autonome et distance d'arrêt devant un obstacle.</p>
+<h2 id="7-recharge-et-energie-solaire">7. Recharge et énergie solaire</h2>
+<p>Cette partie regroupe la borne de recharge (tâche 8) et la production solaire (tâche 9). Elle est suivie par la même supervision que le kart (tâche 6).</p>
+<figure class="schema"><img src="assets/fig/fig7-bete-recharge.svg" alt="Bête à cornes de la recharge solaire" width="760" height="276"><figcaption>Figure 7 : Bête à cornes de la recharge solaire</figcaption></figure>
+
+<p>La figure 8 montre le chemin de l'énergie, depuis les panneaux solaires jusqu'aux roues du kart. Le réseau public n'est prévu qu'en secours, et aucun courant ne lui est renvoyé.</p>
+<figure class="schema"><img src="assets/fig/fig8-chaine-energie.svg" alt="Chaîne d&#x27;énergie, du panneau solaire au moteur du kart" width="760" height="284"><figcaption>Figure 8 : Chaîne d'énergie, du panneau solaire au moteur du kart</figcaption></figure>
+
+<h3 id="71-tache-8-borne-de-recharge-et-outil-de-test">7.1 Tâche 8 : borne de recharge et outil de test</h3>
+<p>La borne fournit du 230 V alternatif au kart. Comme une borne du commerce, elle dialogue avec le véhicule avant d'envoyer le courant, en suivant la norme de recharge des véhicules électriques. L'outil de test se fait passer pour un véhicule, ce qui permet de vérifier la borne sans avoir le kart.</p>
+<p>Une recharge se déroule en quatre étapes. Tant que le kart n'est pas branché, la borne attend et il n'y a aucune tension sur la prise. Quand le kart est branché, la borne le détecte et lui indique le courant maximal disponible. Quand le kart est prêt, la borne envoie le courant et la charge commence. À la fin de la charge, au débranchement ou au moindre défaut, la borne coupe le courant immédiatement.</p>
+<figure class="schema"><img src="assets/fig/fig9-etapes-recharge.svg" alt="Étapes d&#x27;une recharge" width="760" height="252"><figcaption>Figure 9 : Étapes d'une recharge</figcaption></figure>
+
+<h4 id="fonctions-de-la-borne">Fonctions de la borne</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dialoguer avec le véhicule</td>
+<td>Suivre le protocole de recharge normalisé et gérer chaque étape de la recharge</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Adapter le courant</td>
+<td>Annoncer au kart un courant adapté à l'énergie solaire disponible</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Couper sur défaut</td>
+<td>Couper immédiatement en cas de défaut, de débranchement ou de dialogue perdu</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Protéger les personnes</td>
+<td>Protection différentielle adaptée à la recharge de véhicules</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Mesurer l'énergie</td>
+<td>Énergie fournie à chaque recharge, envoyée à la supervision</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Autoriser la charge</td>
+<td>Démarrer la charge par badge RFID ou depuis la supervision</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Afficher son état</td>
+<td>Libre, en charge ou en défaut</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="fonctions-de-loutil-de-test">Fonctions de l'outil de test</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simuler un véhicule</td>
+<td>Reproduire chaque étape : non branché, branché, prêt à charger</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Simuler des défauts</td>
+<td>Provoquer les défauts que la borne doit détecter</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Lire le dialogue</td>
+<td>Afficher ce que la borne envoie, notamment le courant annoncé</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Vérifier la présence du 230 V</td>
+<td>Indiquer si la tension est présente, sans que l'utilisateur touche le 230 V</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Tester la protection différentielle</td>
+<td>Vérifier qu'elle déclenche bien</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Faire un rapport</td>
+<td>Enregistrer le résultat de chaque test</td>
+<td>Optionnelle</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_7">Contraintes</h4>
+<p>La partie 230 V est câblée et contrôlée par une personne habilitée du département GEII, et les étudiants travaillent hors tension sur cette partie. Le socle de la borne est réalisé par les étudiants de GMP. Le boîtier doit être fermé et protégé des intempéries si la borne est installée dehors. La compatibilité avec la SAÉ commune de l'IUT (prise, puissance, communication) reste à valider avec les autres départements.</p>
+<h3 id="72-tache-9-production-solaire-et-stockage">7.2 Tâche 9 : production solaire et stockage</h3>
+<p>Des panneaux solaires sont déjà installés, mais pas en nombre suffisant pour couvrir les besoins du projet. Ce sont des panneaux de 250 Wc, avec une tension de 31,77 V et un courant de 7,67 A au maximum. Il en faudra donc davantage. Les étudiants de TC et de GEA cherchent des financements pour en ajouter.</p>
+<div class="photos p1">
+<figure><a href="assets/img/panneaux-solaires.jpg"><img src="assets/img/panneaux-solaires.jpg" alt="les panneaux solaires déjà installés, posés au sol le long du bâtiment" width="480" height="640" loading="lazy"></a><figcaption>Photo 9 : les panneaux solaires déjà installés, posés au sol le long du bâtiment</figcaption></figure>
+</div>
+
+<p>Les panneaux chargent une batterie de stockage, qui alimente ensuite la borne en 230 V. Une base Victron, suivie avec VictronConnect, est déjà en place. Le dimensionnement sera fait dans l'analyse fonctionnelle, à partir de l'énergie nécessaire pour 70 km de kart et de l'ensoleillement à Troyes.</p>
+<h4 id="fonctions-attendues_3">Fonctions attendues</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Description</th>
+<th>Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produire</td>
+<td>Panneaux solaires, avec une régulation qui en tire le maximum de puissance</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Stocker</td>
+<td>Batterie de stockage avec sa protection</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Alimenter la borne</td>
+<td>Fournir un 230 V alternatif stable</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Basculer sur le réseau</td>
+<td>Passer sur le réseau quand la batterie est trop basse, sans couper une charge en cours</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Ne pas réinjecter</td>
+<td>Ne renvoyer aucun courant sur le réseau public</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Mesurer l'énergie</td>
+<td>Production, niveau de stockage, consommation de la borne et part du solaire</td>
+<td>Obligatoire</td>
+</tr>
+<tr>
+<td>Informer la borne</td>
+<td>Indiquer à la borne la puissance solaire disponible</td>
+<td>Souhaitée</td>
+</tr>
+<tr>
+<td>Faire un bilan</td>
+<td>Énergie produite et consommée par jour et par mois</td>
+<td>Souhaitée</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="contraintes_8">Contraintes</h4>
+<p>L'installation doit respecter les normes des installations photovoltaïques et de stockage, avec des protections côté continu et côté alternatif. La fixation des nouveaux panneaux et le passage des câbles devront être validés par le service technique de l'IUT. La batterie de stockage sera placée dans un local ventilé, hors de portée du public.</p>
+<h4 id="points-a-preciser_4">Points à préciser</h4>
+<p>Nombre exact de panneaux déjà installés (une dizaine sont posés au sol le long du bâtiment, photo 9). Matériel Victron en place (régulateur, convertisseur, batterie). Les valeurs de 31,77 V et 7,67 A donnent environ 244 W, elles correspondent donc probablement au point de puissance maximale : il faudra aussi relever la tension à vide et le courant de court-circuit sur la plaque des panneaux.</p>
+<h2 id="8-securite-et-normes">8. Sécurité et normes</h2>
+<p>Aucune fonction de sécurité (arrêt d'urgence, coupure sur défaut, ouverture d'une porte) ne doit reposer uniquement sur un programme ou sur le réseau : chacune doit avoir un équivalent câblé.</p>
+<p>Les règles suivantes s'appliquent à toutes les tâches :</p>
+<ol>
+<li>tout travail sur du 230 V se fait hors tension, sous la responsabilité d'une personne habilitée du département GEII ;</li>
+<li>chaque carte conçue est protégée en entrée ;</li>
+<li>toute batterie a un système de protection et se charge sous surveillance ;</li>
+<li>un système en défaut passe dans un état sûr : moteur coupé, courant de la borne coupé, porte déverrouillée, clim en marche ;</li>
+<li>chaque essai du kart commence par une vérification des freins, de l'arrêt d'urgence, de la télécommande d'arrêt et de la zone d'essai.</li>
+</ol>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Référence</th>
+<th>Domaine</th>
+<th>Tâches concernées</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NF C 15-100</td>
+<td>Installations électriques basse tension</td>
+<td>Tâches 3, 4, 8, 9</td>
+</tr>
+<tr>
+<td>NF C 18-510</td>
+<td>Habilitation électrique</td>
+<td>Toutes</td>
+</tr>
+<tr>
+<td>IEC 61851</td>
+<td>Recharge des véhicules électriques</td>
+<td>Tâche 8</td>
+</tr>
+<tr>
+<td>NF C 15-712</td>
+<td>Installations photovoltaïques et stockage</td>
+<td>Tâche 9</td>
+</tr>
+<tr>
+<td>Compatibilité électromagnétique</td>
+<td>Perturbations entre appareils</td>
+<td>Tâches 5, 8</td>
+</tr>
+<tr>
+<td>RGPD</td>
+<td>Données des badges</td>
+<td>Tâches 2, 8</td>
+</tr>
+<tr>
+<td>Sécurité incendie</td>
+<td>Portes d'issue verrouillées</td>
+<td>Tâche 2</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="9-bancs-de-test-et-validation">9. Bancs de test et validation</h2>
+<p>Une tâche est considérée comme validée quand toutes ses fonctions obligatoires fonctionnent sur son banc de test, devant un enseignant, avec une fiche de validation signée. Cette fiche reprend, pour chaque fonction, la méthode de test, le résultat attendu, le résultat obtenu, la date et la signature.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Principe du banc de test</th>
+<th>Ce qu'il permet de vérifier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tâche 1</td>
+<td>Pot de test et réservoir</td>
+<td>Déclenchement de l'arrosage, arrêt quand le réservoir est vide</td>
+</tr>
+<tr>
+<td>Tâche 2</td>
+<td>Maquette de porte avec lecteur de badge</td>
+<td>Badges autorisés, refusés, retirés, coupure réseau, coupure de courant</td>
+</tr>
+<tr>
+<td>Tâche 3</td>
+<td>Enceinte chauffée avec capteurs</td>
+<td>Réaction à 22, 25 et 28 °C, mail reçu, ordre envoyé à la clim</td>
+</tr>
+<tr>
+<td>Tâche 4</td>
+<td>Faux capteurs qui envoient des données</td>
+<td>Réception, historique, alertes, redémarrage après coupure</td>
+</tr>
+<tr>
+<td>Tâche 5</td>
+<td>Moteur entraînant une charge, alimentation limitée</td>
+<td>Vitesse, protections, rendement, énergie récupérée au freinage</td>
+</tr>
+<tr>
+<td>Tâche 6</td>
+<td>Simulateur des données du kart</td>
+<td>Affichage de chaque information et de chaque alerte, localisation GPS</td>
+</tr>
+<tr>
+<td>Tâche 7</td>
+<td>Kart roues levées, puis piste de test</td>
+<td>Détection de ligne, direction, arrêt devant un obstacle, stationnement</td>
+</tr>
+<tr>
+<td>Tâche 8</td>
+<td>Outil de test de la borne</td>
+<td>Chaque étape de la recharge, courant annoncé, coupure sur défaut</td>
+</tr>
+<tr>
+<td>Tâche 9</td>
+<td>Charge de test à la place de la borne</td>
+<td>Production, autonomie, bascule sur le réseau, absence de réinjection</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pour finir, un test de l'ensemble sera réalisé : le kart roule en autonome, se gare devant la borne, se recharge grâce au solaire, et toutes les informations apparaissent dans la supervision.</p>
+<h2 id="10-planning">10. Planning</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Période</th>
+<th>Travail à réaliser</th>
+<th>Organisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jeudi 26 et vendredi 27 novembre 2026</td>
+<td>Rédaction du cahier des charges</td>
+<td>En groupe</td>
+</tr>
+<tr>
+<td>Semaine du 30 novembre 2026</td>
+<td>Analyse fonctionnelle : choix du matériel, chiffrage, faisabilité</td>
+<td>En groupe</td>
+</tr>
+<tr>
+<td>Décembre 2026 à fin janvier 2027</td>
+<td>Conception et réalisation de chaque tâche</td>
+<td>Chacun sur sa partie</td>
+</tr>
+<tr>
+<td>Fin janvier 2027</td>
+<td>Gros point d'avancement et soutenance intermédiaire</td>
+<td>Devant les enseignants</td>
+</tr>
+<tr>
+<td>Février à début mars 2027</td>
+<td>Fin de réalisation, intégration, validation et cahier de pannes</td>
+<td>Chacun sur sa partie, puis en groupe pour l'intégration</td>
+</tr>
+<tr>
+<td>Début à mi-mars 2027</td>
+<td>Soutenance finale</td>
+<td>En groupe</td>
+</tr>
+</tbody>
+</table></div>
+<p>En plus de ces étapes, une revue de projet a lieu chaque semaine. Chacun y présente ce qui a été fait, ce qui bloque et ce qui est prévu pour la semaine suivante. La supervision de la domotique (tâche 4) et la liste des informations échangées dans le kart doivent être prêtes tôt, car d'autres tâches en dépendent.</p>
+<h2 id="11-maintenance-et-cahier-de-pannes">11. Maintenance et cahier de pannes</h2>
+<p>À la fin du projet, chaque étudiant rédige le cahier de pannes du système d'un autre. Pour que ce soit possible, chaque tâche doit fournir un dossier technique complet : schémas, programmes commentés, liste du matériel, notice d'utilisation et méthodes de test de la partie 9. Chaque carte doit aussi prévoir des points de mesure accessibles et des voyants d'état pour faciliter le diagnostic.</p>
+<p>Le cahier de pannes prendra la forme d'un tableau, avec une ligne par panne. Voici deux exemples :</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Symptôme</th>
+<th>Cause possible</th>
+<th>Vérification</th>
+<th>Solution</th>
+<th>Gravité (1 à 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le kart ne démarre pas, l'écran est allumé</td>
+<td>Arrêt d'urgence enclenché</td>
+<td>Lire le défaut affiché sur le tableau de bord</td>
+<td>Réarmer l'arrêt d'urgence</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Un badge autorisé est refusé</td>
+<td>Liste des badges pas à jour sur la porte</td>
+<td>Comparer avec la liste de la supervision</td>
+<td>Remettre la liste à jour</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="12-points-restant-a-valider">12. Points restant à valider</h2>
+<p>Ces points devront être tranchés avec les enseignants, au plus tard pendant l'analyse fonctionnelle.</p>
+<ul class="checklist">
+<li class="fait"><span class="case">✔</span>Répartition des tâches entre les étudiants (partie 2)</li>
+<li class="fait"><span class="case">✔</span>Choix des moyens de communication, et accord pour s&#x27;écarter du cadre commun si besoin (partie 4)</li>
+<li class="afaire"><span class="case"></span>48 V : tension nominale ou tension maximale batterie pleine (partie 6)</li>
+<li class="afaire"><span class="case"></span>Caractéristiques des batteries déjà en place sur le kart (partie 6)</li>
+<li class="afaire"><span class="case"></span>Zone d&#x27;essai autorisée et type de lignes au sol (partie 6.3)</li>
+<li class="afaire"><span class="case"></span>État du système de badge installé l&#x27;an dernier (partie 5.2)</li>
+<li class="afaire"><span class="case"></span>Référence exacte de la clim Atlantic Fujitsu et moyens de commande possibles (partie 5.3)</li>
+<li class="afaire"><span class="case"></span>Machines et réseau pour les deux supervisions, accord de l&#x27;administrateur réseau (parties 5.4 et 6.2)</li>
+<li class="afaire"><span class="case"></span>Utilisation de la base VictronConnect seule, ou développement d&#x27;une supervision solaire (parties 6.2 et 7.2)</li>
+<li class="fait"><span class="case">✔</span>Compatibilité avec la SAÉ « borne de recharge » des autres départements (partie 7.1)</li>
+<li class="afaire"><span class="case"></span>Nombre et emplacement des panneaux déjà installés, emplacement de la borne (partie 7.2)</li>
+</ul>
+    <footer class="pied">
+      <p>Cahier des charges – SAÉ BUT3 GEII, IUT de Troyes, 2026-2027. Version du 27 novembre 2026.</p>
+      <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Revenir en haut de la page</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Sommaire replié par défaut sur téléphone
+  if (window.matchMedia('(max-width: 900px)').matches) {
+    document.querySelector('.sommaire details').removeAttribute('open');
+  }
+  // Ferme le sommaire après un clic sur téléphone
+  document.querySelectorAll('.sommaire a').forEach(a => a.addEventListener('click', () => {
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      document.querySelector('.sommaire details').removeAttribute('open');
+    }
+  }));
+  // Surligne la partie en cours de lecture
+  const liens = new Map([...document.querySelectorAll('.sommaire a')].map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && liens.has(e.target.id)) {
+        liens.forEach(a => a.classList.remove('actif'));
+        liens.get(e.target.id).classList.add('actif');
+      }
+    });
+  }, { rootMargin: '0px 0px -75% 0px' });
+  document.querySelectorAll('.contenu h2[id], .contenu h3[id]').forEach(h => obs.observe(h));
+</script>
+</body>
+</html>
